@@ -1,0 +1,49 @@
+#1
+class LittleBell:
+    def sound(self):
+        print("ding")
+bell = LittleBell()
+bell.sound()
+
+#2
+class Button:
+    def __init__(self):
+        self.clicks = 0
+
+    def click(self):
+        self.clicks += 1
+
+    def click_count(self):
+        return self.clicks
+
+button1 = Button()
+
+button1.click()
+button1.click()
+button1.click()
+print(button1.click_count())
+
+#3
+class Balance:
+    def __init__(self):
+        self.left_weight = 0
+        self.right_weight = 0
+
+    def add_left(self, weight):
+        self.left_weight += weight
+
+    def add_right(self, weight):
+        self.right_weight += weight
+
+    def result(self):
+        if self.right_weight == self.left_weight:
+            return "="
+        elif self.right_weight > self.left_weight:
+            return "R"
+        else:
+            return "L"
+balance = Balance()
+balance.add_right(10)
+balance.add_left(9)
+balance.add_left(2)
+print(balance.result())
