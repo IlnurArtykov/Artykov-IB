@@ -1,0 +1,52 @@
+from abc import ABC, abstractmethod
+
+# Абстрактный класс Animal
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+# Классы для каждого вида животных
+class Lion(Animal):
+    def make_sound(self):
+        return "Рычание!"
+
+class Monkey(Animal):
+    def make_sound(self):
+        return "Визг!"
+
+class Elephant(Animal):
+    def make_sound(self):
+        return "Трубление!"
+
+# Абстрактная фабрика AnimalFactory
+class AnimalFactory(ABC):
+    @abstractmethod
+    def create_animal(self):
+        pass
+
+# Конкретные фабрики для каждого вида животных
+class LionFactory(AnimalFactory):
+    def create_animal(self):
+        return Lion()
+
+class MonkeyFactory(AnimalFactory):
+    def create_animal(self):
+        return Monkey()
+
+class ElephantFactory(AnimalFactory):
+    def create_animal(self):
+        return Elephant()
+
+# Использование фабрик для создания экземпляров животных и воспроизведения звуков
+lion_factory = LionFactory()
+monkey_factory = MonkeyFactory()
+elephant_factory = ElephantFactory()
+
+lion = lion_factory.create_animal()
+monkey = monkey_factory.create_animal()
+elephant = elephant_factory.create_animal()
+
+print(lion.make_sound())  # Вывод: "Рычание!"
+print(monkey.make_sound())  # Вывод: "Визг!"
+print(elephant.make_sound())  # Вывод: "Трубление!"
