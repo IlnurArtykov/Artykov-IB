@@ -1,0 +1,22 @@
+class oddevenseparator:
+    def __init__(self):
+        self.numbers = []
+
+    def add_number(self, number):
+        self.numbers.append(number)
+
+    def even(self):
+        return [num for num in self.numbers if num % 2 == 0]
+
+    def odd(self):
+        return [num for num in self.numbers if num % 2 != 0]
+
+
+separator = oddevenseparator()
+separator.add_number(1)
+separator.add_number(5)
+separator.add_number(6)
+separator.add_number(8)
+separator.add_number(3)
+print(' '.join(map(str, separator.even())))
+print(' '.join(map(str, separator.odd())))
