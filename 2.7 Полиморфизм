@@ -1,0 +1,81 @@
+class Table:
+    def __init__(self, rows, cols):
+        self.table = [[0] * cols for _ in range(rows)]
+        self.rows = rows
+        self.cols = cols
+
+    def get_value(self, row, col):
+        if 0 <= row < self.rows and 0 <= col < self.cols:
+            return self.table[row][col]
+        else:
+            return None
+
+    def set_value(self, row, col, value):
+        self.table[row][col] = value
+
+    def n_rows(self):
+        return self.rows
+
+    def n_cols(self):
+        return self.cols
+
+    def delete_row(self, row):
+        if 0 <= row < self.rows:
+            del self.table[row]
+            self.rows -= 1
+            for i in range(row, self.rows):
+                for j in range(self.cols):
+                    self.table[i][j] = self.table[i + 1][j]
+        else:
+            raise IndexError('Invalid row index')
+
+    def delete_col(self, col):
+        if 0 <= col < self.cols:
+            for i in range(self.rows):
+                del self.table[i][col]
+            self.cols -= 1
+            for i in range(col, self.cols):
+                for j in range(self.rows):
+                    self.table[j][i] = self.table[j][i + 1]
+        else:
+            raise IndexError('Invalid column index')
+
+    def add_row(self, row):
+        if 0 <= row <= self.rows:
+            self.table.insert(row, [0] * self.cols)
+            self.rows += 1
+            for i in range(row + 1, self.rows):
+                for j in range(self.cols):
+                    self.table[i][j] = self.table[i - 1][j]
+        else:
+            raise IndexError('Invalid row index')
+
+    def add_col(self, col):
+        if 0 <= col <= self.cols:
+            for i in range(self.rows):
+                self.table[i].insert(col, 0)
+            self.cols += 1
+            for i in range(col + 1, self.cols):
+                for j in range(self.rows):
+                    self.table[j][i] = self.table[j][i - 1]
+        else:
+            raise IndexError('Invalid column index')
+# Ваш код
+
+tab = Table(3, 5)
+tab.set_value(0, 1, 10)
+tab.set_value(1, 2, 20)
+tab.set_value(2, 3, 30)
+for i in range(tab.n_rows()):
+    for j in range(tab.n_cols()):
+        print(tab.get_value(i, j), end=' ')
+    print()
+print()
+
+tab.add_row(1)
+
+for i in range(tab.n_rows()):
+    for j in range(tab.n_cols()):
+        print(tab.get_value(i, j), end=' ')
+    print()
+print()
