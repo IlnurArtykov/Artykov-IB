@@ -21,7 +21,6 @@ class FoodInfo:
  
     def get_kcalories(self):
         return 4 * self.proteins + 9 * self.fats + 4 * self.carbohydrates
-        # Ваш код
 
 food1 = FoodInfo(100, 100, 100)
 food2 = FoodInfo(50, 60, 70)
