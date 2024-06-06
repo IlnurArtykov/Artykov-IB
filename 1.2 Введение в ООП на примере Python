@@ -1,0 +1,17 @@
+class Button:
+    def __init__(self):
+        self.clicks = 0
+
+    def click(self):
+        self.clicks += 1
+
+    def click_count(self):
+        return self.clicks
+
+
+button1 = Button()
+
+button1.click()
+button1.click()
+button1.click()
+print(button1.click_count())
