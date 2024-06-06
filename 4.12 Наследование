@@ -1,0 +1,27 @@
+class A:
+    def __str__(self):
+        return "A.str"
+
+    def hello(self):
+        print("Hello")
+
+class B:
+    def __str__(self):
+        return "B.str"
+
+    def good_evening(self):
+        print("Good evening")
+
+class C(A, B):
+    pass
+
+class D(A, B):
+    pass
+
+c = C()
+print(c)  # A.str
+c.hello()  # Hello
+
+d = D()
+print(d)  # B.str
+d.good_evening()  # Good evening
