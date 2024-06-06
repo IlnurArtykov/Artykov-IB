@@ -1,0 +1,53 @@
+class Vehicle:
+    pass
+
+class WaterVehicle(Vehicle):
+    pass
+
+class AirVehicle(Vehicle):
+    pass
+
+class LandVehicle(Vehicle):
+    pass
+
+class SpaceVehicle(Vehicle):
+    pass
+
+class Ship(WaterVehicle):
+    pass
+
+class Boat(WaterVehicle):
+    pass
+
+class Airplane(AirVehicle):
+    pass
+
+class Dirigible(AirVehicle):
+    pass
+
+class Balloon(AirVehicle):
+    pass
+
+class Train(LandVehicle):
+    pass
+
+class Car(LandVehicle):
+    pass
+
+class Bicycle(LandVehicle):
+    pass
+
+class AnimalPoweredVehicle(LandVehicle):
+    pass
+
+class HorseCart(AnimalPoweredVehicle):
+    pass
+
+class Spacecraft(SpaceVehicle):
+    pass
+
+class Rocket(SpaceVehicle):
+    pass
+
+class Satellite(SpaceVehicle):
+    pass
