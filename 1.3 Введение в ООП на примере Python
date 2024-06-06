@@ -16,3 +16,9 @@ class Balance:
             return "R"
         else:
             return "L"
+
+balance = Balance()
+balance.add_right(10)
+balance.add_left(9)
+balance.add_left(2)
+print(balance.result())
